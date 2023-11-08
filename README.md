@@ -19,6 +19,9 @@ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.pas
 brew install argocd
 argocd login 127.0.0.1:8080
 
+# just create a service NOT MANAGED BY ARGO
+kubectl expose deploy webapp --name=webapp-svc --type=LoadBalancer --port=8888 --target-port=8888
+
 # sync and get status for app helloapp
 argocd app sync helloapp
 argocd app get helloapp
