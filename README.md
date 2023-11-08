@@ -18,4 +18,8 @@ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.pas
 ```bash
 brew install argocd
 argocd login 127.0.0.1:8080
+
+# sync and get status for app helloapp
+argocd app sync helloap
+argocd app get helloap
 ```
